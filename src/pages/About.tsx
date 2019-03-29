@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Person from '../model/Person'
+import request from '@/api/request'
 
 interface IProps {
   name: string;
@@ -11,9 +12,13 @@ class Wel extends React.Component<IProps, object> {
   constructor(props: any) {
     super(props);
   }
-  public componentDidMount() {
-    console.log(this.name);
-
+  public async componentDidMount() {
+    // console.log(this.name);
+    const res = await request({
+      method: 'post',
+      url: `http://www.baidu.com`,
+    })
+    console.log(res);
   }
   public render() {
     return (
