@@ -1,6 +1,8 @@
 import * as React from 'react';
 import Person from '../model/Person'
 import request from '@/api/request'
+import Sub from '@/components/Sub';
+
 
 interface IProps {
   name: string;
@@ -20,10 +22,16 @@ class Wel extends React.Component<IProps, object> {
     })
     console.log(res);
   }
+  public show() {
+    console.log('子组件触发了回调');
+
+  }
+
   public render() {
     return (
       <div className="about">
         <h3>{this.name}</h3>
+        <Sub cb={this.show} />
       </div>
     );
   }
