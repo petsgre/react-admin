@@ -10,7 +10,7 @@ import Help from '@/pages/Help';
 export default (
   <Router>
     <div>
-      <Route exact={false} path="/" component={App} />
+      <Route exact={true} path="/" component={App} />
       <Route path="/About" component={About} />
       <Route path="/Help" component={Help} />
     </div>

@@ -15,23 +15,18 @@ class Wel extends React.Component<IProps, object> {
     super(props);
   }
   public async componentDidMount() {
-    // console.log(this.name);
     const res = await request({
       method: 'post',
       url: `http://www.baidu.com`,
     })
     console.log(res);
   }
-  public show() {
-    console.log('子组件触发了回调');
-
-  }
 
   public render() {
     return (
       <div className="about">
         <h3>{this.name}</h3>
-        <Sub cb={this.show} />
+        <Sub />
       </div>
     );
   }
