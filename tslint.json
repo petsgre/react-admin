@@ -17,5 +17,8 @@
     "jsx-boolean-value": false,
     "member-access": false,
     "object-literal-sort-keys": false
+  },
+  "jsRules": {
+    "no-console": false
   }
 }
