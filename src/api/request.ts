@@ -1,8 +1,8 @@
 import axios from 'axios'
-import { message } from 'antd';
+// import { message } from 'antd';
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.BASE_API, // api 的 base_url
+  baseURL: 'dev', // api 的 base_url
   headers: { 'content-type': 'text/plain;charset=UTF-8' },
   timeout: 5000, // request timeout
   withCredentials: true,
@@ -34,10 +34,10 @@ service.interceptors.response.use(
   (response: any) => {
     const res = response.data
     console.log(res);
-    if(res.status.code === 10){
-      message.info('请登录');
-      // throw new Error('请登录')
-    }
+    // if(res.status.code === 10){
+    //   message.info('请登录');
+    //   // throw new Error('请登录')
+    // }
     // if (res.status.code !== 0) {
     //   Message({
     //     message: res.message,

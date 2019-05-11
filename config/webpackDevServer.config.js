@@ -80,7 +80,25 @@ module.exports = function(proxy, allowedHost) {
       disableDotRule: true,
     },
     public: allowedHost,
-    proxy,
+    proxy: {
+      // change xxx-api/login => mock/login
+      // detail: https://cli.vuejs.org/config/#devserver-proxy
+      '/dev': {
+        target: `http://localhost:3000/mock`,
+        changeOrigin: true,
+        pathRewrite: {
+          ['^' + '/dev']: ''
+        }
+      }
+    },
+    // after: function(app, server) {
+    //   // 做些有趣的事
+    //   console.log(app);
+    //   app.get('/test/1',function(req, res) {
+    //     res.json({a:1})
+    //   })
+    // },
+    after: require('../mock/mock-server.js'),
     before(app) {
       // This lets us open files from the runtime error overlay.
       app.use(errorOverlayMiddleware());

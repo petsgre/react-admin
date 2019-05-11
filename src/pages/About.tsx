@@ -16,8 +16,8 @@ class Wel extends React.Component<IProps, object> {
   }
   public async componentDidMount() {
     const res = await request({
-      method: 'post',
-      url: `http://www.baidu.com`,
+      method: 'get',
+      url: `/test`,
     })
     console.log(res);
   }
