@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './App.css';
+import './Dashboard.css';
 // import logo from './logo.svg';
 import {
   Layout, Menu, Breadcrumb, Icon,
@@ -7,7 +7,7 @@ import {
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
-class App extends React.Component {
+class Dashboard extends React.Component {
   public name: string = '666';
   public aaa: number = 1;
   constructor(props: any) {
@@ -31,7 +31,7 @@ class App extends React.Component {
   }
   public render() {
     return (
-      <div className="App">
+      <div className="Dashboard">
         <Layout style={{ minHeight: '100vh' }}>
           <Header className="header">
             <div className="logo" />
@@ -86,7 +86,7 @@ class App extends React.Component {
               <Breadcrumb style={{ margin: '16px 0' }}>
                 <Breadcrumb.Item>Home</Breadcrumb.Item>
                 <Breadcrumb.Item>List</Breadcrumb.Item>
-                <Breadcrumb.Item>App</Breadcrumb.Item>
+                <Breadcrumb.Item>Dashboard</Breadcrumb.Item>
               </Breadcrumb>
               <Content style={{
                 background: '#fff', padding: 24, margin: 0, minHeight: 280,
@@ -102,4 +102,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default Dashboard;
