@@ -30,7 +30,7 @@ class Login extends React.Component<any, object> {
         size="large"
         prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
         />
-        <Button type="primary" onClick={this.login}>登录</Button>
+        <Button className="zx-login-button" type="primary" onClick={this.login}>登录</Button>
       </div>
     );
   }
