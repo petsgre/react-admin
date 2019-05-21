@@ -9,3 +9,7 @@ ReactDOM.render(
   Routes,
   document.getElementById('root') as HTMLElement
 );
+
+window.onerror = (e) => {
+  console.log(e);
+}

@@ -1,4 +1,4 @@
-import { message } from 'antd';
+import { message, notification } from 'antd';
 import axios from 'axios'
 // import { message } from 'antd';
 // create an axios instance
@@ -33,7 +33,7 @@ service.interceptors.response.use(
    * 以下代码均为样例，请结合自生需求加以修改，若不需要，则可删除
    */
   (response: any) => {
-    if(response.data.code === 300){
+    if (response.data.code === 300) {
       message.info('请登录');
       // throw new Error('请登录')
     }
@@ -64,6 +64,12 @@ service.interceptors.response.use(
   },
   (error: any) => {
     console.log('err' + error) // for debug
+    const args = {
+      message: '请求异常！',
+      description: `${error}`,
+      duration: 0,
+    };
+    notification.open(args);
     return Promise.reject(error)
   }
 )
