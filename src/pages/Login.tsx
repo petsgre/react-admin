@@ -24,7 +24,7 @@ class Login extends Base {
     })
     console.log(res);
     if (res.code === 1) {
-      // this.props.history.push('/Dashboard')
+      this.props.history.push('/Dashboard')
     }
   }
   public changeUserName(event: any) {
