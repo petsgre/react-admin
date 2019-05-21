@@ -1,3 +1,4 @@
+import { message } from 'antd';
 import axios from 'axios'
 // import { message } from 'antd';
 // create an axios instance
@@ -32,12 +33,10 @@ service.interceptors.response.use(
    * 以下代码均为样例，请结合自生需求加以修改，若不需要，则可删除
    */
   (response: any) => {
-    const res = response.data
-    console.log(res);
-    // if(res.status.code === 10){
-    //   message.info('请登录');
-    //   // throw new Error('请登录')
-    // }
+    if(response.data.code === 300){
+      message.info('请登录');
+      // throw new Error('请登录')
+    }
     // if (res.status.code !== 0) {
     //   Message({
     //     message: res.message,

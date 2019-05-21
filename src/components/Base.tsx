@@ -1,24 +1,15 @@
 import * as React from 'react';
+import * as api from '@/api'
 
-
-class Base extends React.Component<any, object> {
-    private name = 'Base component'
-    constructor(props: any) {
-      super(props);
-      this.clickHandle = this.clickHandle.bind(this);
-    }
-    public componentDidMount() {
-      console.log(this);
-    }
-    public clickHandle() {
-      console.log(this);
-    }
-    public render() {
-      return (
-        <div className="Base">
-          <h3 onClick={this.clickHandle}>{this.name}</h3>
-        </div>
-      );
-    }
+class Base extends React.Component<any, any> {
+  public name = 'Base component'
+  protected readonly constants = 222
+  protected readonly api: any = api.default
+  constructor(props: any) {
+    super(props);
+  }
+  public componentDidMount() {
+    // console.log(this);
+  }
 }
 export default Base;

@@ -1,15 +1,41 @@
-import * as React from 'react';
+import Base from '@/components/Base';
 import { Button } from 'antd';
 import { Input, Tooltip, Icon } from 'antd';
+import * as React from 'react';
 
-class Login extends React.Component<any, object> {
-  // private name = 'Login component'
+class Login extends Base {
+  public name = 'Login component'
   constructor(props: any) {
     super(props);
     this.login = this.login.bind(this);
+    this.state = {
+      name: this.name,
+      userName: '',
+      password: '',
+      api: this.api,
+    }
+    this.changeUserName = this.changeUserName.bind(this)
+    this.changePassword = this.changePassword.bind(this)
   }
-  public login() {
-    this.props.history.push('/Dashboard')
+  public async login() {
+    const res = await this.api.user.login({
+      name: 'admin',
+      password: this.state.password,
+    })
+    console.log(res);
+    if (res.code === 1) {
+      this.props.history.push('/Dashboard')
+    }
+  }
+  public changeUserName(event: any) {
+    this.setState({
+      userName: event.target.value
+    })
+  }
+  public changePassword(event: any) {
+    this.setState({
+      password: event.target.value
+    })
   }
   public render() {
     return (
@@ -18,6 +44,7 @@ class Login extends React.Component<any, object> {
         <Input className="zx-login-input"
           placeholder="请输入账号"
           size="large"
+          onChange={this.changeUserName}
           prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
           suffix={
             <Tooltip title="账号密码随便填">
@@ -25,10 +52,11 @@ class Login extends React.Component<any, object> {
             </Tooltip>
           }
         />
-        <Input.Password placeholder="请输入密码" 
-        className="zx-login-input"
-        size="large"
-        prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+        <Input.Password placeholder="请输入密码"
+          className="zx-login-input"
+          size="large"
+          onChange={this.changePassword}
+          prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
         />
         <Button className="zx-login-button" type="primary" onClick={this.login}>登录</Button>
       </div>
