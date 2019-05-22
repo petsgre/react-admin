@@ -1,6 +1,4 @@
 import * as React from 'react';
-import './Dashboard.css';
-// import logo from './logo.svg';
 import {
   Layout, Menu, Breadcrumb, Icon,
 } from 'antd';
