@@ -14,8 +14,7 @@ class Login extends Base {
       password: '',
       api: this.api,
     }
-    this.changeUserName = this.changeUserName.bind(this)
-    this.changePassword = this.changePassword.bind(this)
+    this.changeValue = this.changeValue.bind(this)
   }
   public async login() {
     const res = await this.api.user.login({
@@ -27,15 +26,10 @@ class Login extends Base {
       this.props.history.push('/Dashboard')
     }
   }
-  public changeUserName(event: any) {
-    this.setState({
-      userName: event.target.value
-    })
-  }
-  public changePassword(event: any) {
-    this.setState({
-      password: event.target.value
-    })
+  public changeValue(key: string, event: any) {
+    const temp = {}
+    temp[key] = event.target.value
+    this.setState(temp)
   }
   public render() {
     return (
@@ -44,7 +38,7 @@ class Login extends Base {
         <Input className="zx-login-input"
           placeholder="请输入账号"
           size="large"
-          onChange={this.changeUserName}
+          onChange={this.changeValue.bind(this, 'userName')}
           prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
           suffix={
             <Tooltip title="账号密码随便填">
@@ -55,7 +49,7 @@ class Login extends Base {
         <Input.Password placeholder="请输入密码"
           className="zx-login-input"
           size="large"
-          onChange={this.changePassword}
+          onChange={this.changeValue.bind(this, 'password')}
           prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
         />
         <Button className="zx-login-button" type="primary" onClick={this.login}>登录</Button>
