@@ -2,7 +2,7 @@ import * as React from 'react';
 import Person from '../model/Person'
 
 
-class Sub extends React.Component<object, object> {
+class Sub extends React.Component<any, object> {
   public p: Person = new Person()
   public name = 'Sub com'
   constructor(props: any) {

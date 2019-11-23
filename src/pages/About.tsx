@@ -26,7 +26,7 @@ class Wel extends React.Component<IProps, object> {
     return (
       <div className="about">
         <h3>{this.name}</h3>
-        <Sub />
+        <Sub name="sub"/>
       </div>
     );
   }
