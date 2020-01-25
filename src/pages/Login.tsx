@@ -31,7 +31,7 @@ class Login extends Base {
     }
   }
   public changeValue(key: string, event: any) {
-    const temp = {};
+    const temp: any = {};
     temp[key] = event.target.value;
     this.setState(temp);
   }
