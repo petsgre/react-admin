@@ -1,4 +1,4 @@
-# react-admin
+# React-admin
 
 基于React的后台管理系统模板，帮助企业快速生成后台管理系统
 
