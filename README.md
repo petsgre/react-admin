@@ -36,6 +36,7 @@
 │   ├── dashboard
 │   ├── table
 │   └── authority
+│   └── icon
 
 ```
 
