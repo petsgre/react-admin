@@ -127,7 +127,7 @@ class Container extends React.Component<IProps, IState> {
                 }}
               >
                 <Switch>
-                  <Route path="/p" component={PersonalCenter} />
+                  <Route path="/personal-center" component={PersonalCenter} />
                 </Switch>
               </Content>
             </Layout>
