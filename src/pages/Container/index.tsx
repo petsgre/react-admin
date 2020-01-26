@@ -1,6 +1,10 @@
 import * as React from "react";
 import { Switch, Route } from "react-router-dom";
 import PersonalCenter from "@pages/PersonalCenter";
+import Dashboard from "@pages/Dashboard";
+import Table from "@pages/Table";
+import IconPage from "@pages/Icon";
+import Auth from "@pages/Auth";
 
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
 const { SubMenu } = Menu;
@@ -128,6 +132,10 @@ class Container extends React.Component<IProps, IState> {
               >
                 <Switch>
                   <Route path="/personal-center" component={PersonalCenter} />
+                  <Route path="/dashboard" component={Dashboard} />
+                  <Route path="/table" component={Table} />
+                  <Route path="/auth" component={Auth} />
+                  <Route path="/icon" component={IconPage} />
                 </Switch>
               </Content>
             </Layout>
