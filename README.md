@@ -17,6 +17,13 @@
 - 表格(多种) /
 - extend 功能组件(逐步扩充) etc.
 
+
+## 协作开发
+
+- 协作开发：
+
+  1. Git提交规范 参考 [Git commit standart](https://github.com/petsgre/tutorial/blob/master/notes/git_standard.md)
+
 路由页面配置：
 
 ```
@@ -31,3 +38,5 @@
 │   └── authority
 
 ```
+
+
