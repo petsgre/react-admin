@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import "@/style/index";
 import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import Container from "@/pages/Container";
 import Login from "@/pages/Login";

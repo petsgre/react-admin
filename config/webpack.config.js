@@ -46,7 +46,9 @@ const useTypeScript = fs.existsSync(paths.appTsConfig);
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
 const sassRegex = /\.(scss|sass)$/;
+const lessRegex = /\.(less)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
+const lessModuleRegex = /\.module\.(scss|sass)$/;
 
 // This is the production and development configuration.
 // It is focused on developer experience, fast rebuilds, and a minimal bundle.
@@ -469,6 +471,35 @@ module.exports = function(webpackEnv) {
                 },
                 'sass-loader'
               ),
+              // Don't consider CSS imports dead code even if the
+              // containing package claims to have no side effects.
+              // Remove this when webpack adds a warning or an error for this.
+              // See https://github.com/webpack/webpack/issues/6571
+              sideEffects: true,
+            },
+            {
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use: [
+                {
+                  loader: 'style-loader',
+                }, {
+                  loader: 'css-loader', // translates CSS into CommonJS
+                },
+                {
+                  loader: 'less-loader', // compiles Less to CSS
+                 options: {
+                  //  modifyVars: {
+                  //    'primary-color': '#1DA57A',
+                  //    'link-color': '#1DA57A',
+                  //    'border-radius-base': '2px',
+                  //    // or
+                  //    'hack': `true; @import "your-less-file-path.less";`, // Override with less file
+                  //  },
+                   javascriptEnabled: true,
+                 },
+                }
+              ],
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.
