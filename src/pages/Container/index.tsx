@@ -12,18 +12,23 @@ const { Header, Content, Sider } = Layout;
 
 interface IProps {
   history?: any;
+  children?: any;
 }
 interface IState {
   collapsed?: any;
   isSaved?: any;
 }
 
-class Container extends React.Component<IProps, IState> {
+class Container extends React.Component<IProps, any> {
   public name = "personal center page";
   constructor(props: any) {
     super(props);
     this.state = {
-      collapsed: false
+      collapsed: false,
+      obj: {
+        a: 1,
+        b: 2
+      }
     };
   }
   onCollapse = (collapsed: any) => {
@@ -42,6 +47,18 @@ class Container extends React.Component<IProps, IState> {
   }
   public async componentDidMount() {
     // todo
+    this.setState(
+      {
+        newbi: "neww",
+        obj: {
+          a: "xx",
+          c: 0
+        }
+      },
+      () => {
+        // console.log(this.state);
+      }
+    );
   }
 
   public render() {
