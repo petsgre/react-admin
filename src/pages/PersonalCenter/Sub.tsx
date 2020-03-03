@@ -9,10 +9,15 @@ type Card = {
 };
 function bar<T>(name: T): T {
   console.log(name);
-  
+
   return name;
 }
 bar<Card>({ name: "kk" });
+
+interface Tt {
+  name: string;
+  age?: () => string;
+}
 class PersonalCenter extends React.Component<IProps, any> {
   constructor(props: any) {
     super(props);
@@ -20,6 +25,13 @@ class PersonalCenter extends React.Component<IProps, any> {
   }
   public async componentDidMount() {
     // todo
+    const obj: Tt = {
+      name: "123",
+      age: () => "xxx"
+    };
+    console.log(obj.age);
+    const fn = obj.age!;
+    console.log(fn());
   }
 
   public render() {
